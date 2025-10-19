@@ -1,48 +1,59 @@
-<!DOCTYPE HTML>
+---
+layout: default
+title: Home
+permalink: /
+---
 
-<html><head><title>BMCircuits</title><link rel="icon" href="images/BMC_Logo.png"><meta charset="utf-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="assets/css/main.css"></head><body>
+<section id="banner">
+  <h1>{{ site.title }}</h1>
+  <p>{{ site.description }}</p>
+</section>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html">Home</a>
-					<a href="generic.html">Projects</a>
-					<a href="contact.html">Contact</a>
-				</div>
-			</header><!-- Banner --><section id="banner"><h1>BMCircuits</h1>
-				<p>Bringing Your Ideas to Life</p>
-
-			</section><section id="three" class="wrapper special"><div class="inner">
-					<header class="align-center"><h2>Portfolio</h2>
-						<p>Aliquam erat volutpat nam dui </p>
-					</header><div class="flex flex-2">
-						<article><div class="image fit">
-								<a href="index.html"> <img src="images/rPI_KOE_LCD_Board.png" alt="Pic 01" width="576" height="196"></div> </a>
-							<header><h3>Raspberry Pi LCD adaptor board</h3></header>
-							<p>This little rPi "hat" connects on top of any rPi model and interfaces via the DPI (Display Parallel Interface)</p>
-							<footer><a href="#" class="button special">Learn more</a>
-							</footer></article>
-							<article><div class="image fit">
-								<img src="images/pic02.jpg" alt="Pic 02" width="576" height="196"></div>
-							<header><h3>Fusce pellentesque tempus</h3>
-							</header><p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
-							<footer><a href="#" class="button special">More</a>
-							</footer></article>
-							<article><div class="image fit">
-								<img src="images/pic02.jpg" alt="Pic 02" width="576" height="196"></div>
-							<header><h3>Fusce pellentesque tempus</h3>
-							</header><p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
-							<footer><a href="#" class="button special">More</a>
-							</footer></article></div>
-				</div>
-<!-- Footer -->
-			</section><footer id="footer"><div class="inner">
-				<div class="flex">
-					<ul class="icons"><li><a href="https://www.facebook.com/people/BMCircuits/61569957935911/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="https://www.instagram.com/bmcircuit/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://github.com/bmcircuits" class="icon fa-github"><span class="label">Github</span></a></li>
-					</ul></div>
-				</div>
-			</footer>
-<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
+<section id="three" class="wrapper special">
+  <div class="inner">
+    <header class="align-center">
+      <h2>Portfolio</h2>
+      <p>Aliquam erat volutpat nam dui </p>
+    </header>
+    <div class="flex flex-2">
+      <article>
+        <div class="image fit">
+          <a href="{{ '/' | relative_url }}">
+            <img src="{{ '/images/rPI_KOE_LCD_Board.png' | relative_url }}" alt="Raspberry Pi LCD adaptor board" width="576" height="196">
+          </a>
+        </div>
+        <header>
+          <h3>Raspberry Pi LCD adaptor board</h3>
+        </header>
+        <p>This little rPi "hat" connects on top of any rPi model and interfaces via the DPI (Display Parallel Interface)</p>
+        <footer>
+          <a href="#" class="button special">Learn more</a>
+        </footer>
+      </article>
+      <article>
+        <div class="image fit">
+          <img src="{{ '/images/banner.jpg' | relative_url }}" alt="Banner" width="576" height="196">
+        </div>
+        <header>
+          <h3>Fusce pellentesque tempus</h3>
+        </header>
+        <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
+        <footer>
+          <a href="#" class="button special">More</a>
+        </footer>
+      </article>
+      <article>
+        <div class="image fit">
+          <img src="{{ '/images/BMC_banner.jpg' | relative_url }}" alt="BMC Banner" width="576" height="196">
+        </div>
+        <header>
+          <h3>Fusce pellentesque tempus</h3>
+        </header>
+        <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
+        <footer>
+          <a href="#" class="button special">More</a>
+        </footer>
+      </article>
+    </div>
+  </div>
+</section>

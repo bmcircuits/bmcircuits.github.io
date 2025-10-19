@@ -1,0 +1,46 @@
+# Jekyll configuration for BMCircuits
+# Set url and baseurl for correct absolute/relative URL generation
+# For a user/organization site (username.github.io), leave baseurl empty
+# For a project site (username.github.io/repo), set baseurl: "/repo"
+
+# Site settings
+title: BMCircuits
+description: Bringing Your Ideas to Life
+url: "" # e.g., https://bmcircuits.github.io
+baseurl: "" # e.g., "/bmcircuits"
+permalink: pretty
+
+# Plugins allowed on GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Contact form (Formspree) - set to your form ID to enable the form on the Contact page
+formspree_id: "" # e.g., "xyyzabcd"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+      body_class: subpage
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+
+# Exclude files from the site output
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - README.md
+  - .github
+  - .gitignore
+  - .git
