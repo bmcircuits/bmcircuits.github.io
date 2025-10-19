@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="icon" href="{{ '/images/BMC_Logo.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/projects.css' | relative_url }}">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="inner">
+      <a href="{{ '/' | relative_url }}" class="logo">BMCircuits</a>
+      <nav id="nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/portfolio.html' | relative_url }}">Projects</a>
+        <a href="{{ '/contact.html' | relative_url }}">Contact</a>
+      </nav>
+      <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    </div>
+  </header>
+
+  <section id="main" class="wrapper">
+    <div class="inner">
+      <header class="align-center">
+        <h2>{{ page.title }}</h2>
+        {% if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+      </header>
+
+      {% include project-meta.html project=page %}
+
+      {% if page.links %}
+      <p>
+        {% for l in page.links %}
+          <a class="button" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label | default: l.url }}</a>
+        {% endfor %}
+      </p>
+      {% endif %}
+
+      <div class="project-body">
+        {{ content }}
+      </div>
+
+      {% assign imgs = page.images | default: [] %}
+      {% if imgs.size > 0 %}
+      <h3>Gallery</h3>
+      <div class="project-gallery">
+        {% for it in imgs %}
+          {% if it contains 'src' %}
+            {% assign src = it.src %}
+            {% assign alt = it.alt | default: '' %}
+          {% else %}
+            {% assign src = it %}
+            {% assign alt = '' %}
+          {% endif %}
+          <a href="{{ src | relative_url }}" data-lightbox>
+            <img data-src="{{ src | relative_url }}" alt="{{ alt }}" loading="lazy">
+          </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="inner">
+      <div class="flex">
+        <ul class="icons">
+          <li><a href="https://www.facebook.com/people/BMCircuits/61569957935911/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a href="https://www.instagram.com/bmcircuit/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="https://github.com/bmcircuits" class="icon fa-github"><span class="label">Github</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/skel.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/util.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/projects.js' | relative_url }}"></script>
+</body>
+</html>

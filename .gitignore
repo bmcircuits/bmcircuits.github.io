@@ -1,0 +1,17 @@
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby / Bundler
+.bundle/
+vendor/
+Gemfile.lock
+
+# Node
+node_modules/
+
+# macOS / Linux cruft
+.DS_Store
+Thumbs.db

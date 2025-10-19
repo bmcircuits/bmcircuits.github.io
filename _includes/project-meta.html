@@ -1,0 +1,23 @@
+{%- assign p = include.project | default: page -%}
+<div class="project-meta">
+  {%- if p.year -%}
+    <span class="badge badge-year" title="Year">{{ p.year }}</span>
+  {%- endif -%}
+  {%- if p.client -%}
+    <span class="badge badge-client" title="Client">{{ p.client }}</span>
+  {%- endif -%}
+  {%- if p.role -%}
+    <span class="badge badge-role" title="Role">{{ p.role }}</span>
+  {%- endif -%}
+  {%- if p.stack -%}
+    {%- assign stack_list = p.stack | join: ', ' -%}
+    <span class="badge badge-stack" title="Tech Stack">{{ stack_list }}</span>
+  {%- endif -%}
+  {%- if p.tags -%}
+    <span class="badge-group">
+      {%- for tag in p.tags -%}
+        <span class="badge badge-tag" data-tag="{{ tag | downcase }}">#{{ tag }}</span>
+      {%- endfor -%}
+    </span>
+  {%- endif -%}
+</div>

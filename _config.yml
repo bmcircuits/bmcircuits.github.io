@@ -1,0 +1,38 @@
+title: BMCircuits
+url: ""
+baseurl: ""
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+# Defaults for collections
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+      toc: false
+
+# Markdown configuration
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Excludes
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - package.json
+  - package-lock.json
+
+# Include assets
+sass:
+  style: compressed
