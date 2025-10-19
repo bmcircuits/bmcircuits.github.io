@@ -15,6 +15,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
 # Contact form (Formspree) - set to your form ID to enable the form on the Contact page
 formspree_id: "" # e.g., "xyyzabcd"
 
@@ -31,6 +37,12 @@ defaults:
       type: "posts"
     values:
       layout: post
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+      body_class: subpage
 
 # Exclude files from the site output
 exclude:
@@ -44,3 +56,7 @@ exclude:
   - .github
   - .gitignore
   - .git
+  - contact.html
+  - generic.html
+  - elements.html
+  - test.html

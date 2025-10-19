@@ -13,47 +13,68 @@ permalink: /
   <div class="inner">
     <header class="align-center">
       <h2>Portfolio</h2>
-      <p>Aliquam erat volutpat nam dui </p>
+      <p>Recent featured projects</p>
     </header>
+    {% assign featured = site.projects | where: 'featured', true %}
     <div class="flex flex-2">
-      <article>
-        <div class="image fit">
-          <a href="{{ '/' | relative_url }}">
-            <img src="{{ '/images/rPI_KOE_LCD_Board.png' | relative_url }}" alt="Raspberry Pi LCD adaptor board" width="576" height="196">
+      {% if featured and featured.size > 0 %}
+        {% for project in featured limit:3 %}
+        {% assign img = project.image | default: project.gallery | first %}
+        <article>
+          <a href="{{ project.url | relative_url }}" class="image fit">
+            {% if img %}
+            <img src="{{ img | relative_url }}" alt="{{ project.title }}" width="576" height="196">
+            {% endif %}
           </a>
-        </div>
-        <header>
-          <h3>Raspberry Pi LCD adaptor board</h3>
-        </header>
-        <p>This little rPi "hat" connects on top of any rPi model and interfaces via the DPI (Display Parallel Interface)</p>
-        <footer>
-          <a href="#" class="button special">Learn more</a>
-        </footer>
-      </article>
-      <article>
-        <div class="image fit">
-          <img src="{{ '/images/banner.jpg' | relative_url }}" alt="Banner" width="576" height="196">
-        </div>
-        <header>
-          <h3>Fusce pellentesque tempus</h3>
-        </header>
-        <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
-        <footer>
-          <a href="#" class="button special">More</a>
-        </footer>
-      </article>
-      <article>
-        <div class="image fit">
-          <img src="{{ '/images/BMC_banner.jpg' | relative_url }}" alt="BMC Banner" width="576" height="196">
-        </div>
-        <header>
-          <h3>Fusce pellentesque tempus</h3>
-        </header>
-        <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
-        <footer>
-          <a href="#" class="button special">More</a>
-        </footer>
-      </article>
+          <header>
+            <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+          </header>
+          {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+          <footer>
+            <a href="{{ project.url | relative_url }}" class="button special">Learn more</a>
+          </footer>
+        </article>
+        {% endfor %}
+      {% else %}
+        <article>
+          <div class="image fit">
+            <a href="{{ '/' | relative_url }}">
+              <img src="{{ '/images/rPI_KOE_LCD_Board.png' | relative_url }}" alt="Raspberry Pi LCD adaptor board" width="576" height="196">
+            </a>
+          </div>
+          <header>
+            <h3>Raspberry Pi LCD adaptor board</h3>
+          </header>
+          <p>This little rPi "hat" connects on top of any rPi model and interfaces via the DPI (Display Parallel Interface)</p>
+          <footer>
+            <a href="#" class="button special">Learn more</a>
+          </footer>
+        </article>
+        <article>
+          <div class="image fit">
+            <img src="{{ '/images/banner.jpg' | relative_url }}" alt="Banner" width="576" height="196">
+          </div>
+          <header>
+            <h3>Fusce pellentesque tempus</h3>
+          </header>
+          <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
+          <footer>
+            <a href="#" class="button special">More</a>
+          </footer>
+        </article>
+        <article>
+          <div class="image fit">
+            <img src="{{ '/images/BMC_banner.jpg' | relative_url }}" alt="BMC Banner" width="576" height="196">
+          </div>
+          <header>
+            <h3>Fusce pellentesque tempus</h3>
+          </header>
+          <p>Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit. Pellentesque egestas sem. Suspendisse commodo ullamcorper magna non comodo sodales tempus.</p>
+          <footer>
+            <a href="#" class="button special">More</a>
+          </footer>
+        </article>
+      {% endif %}
     </div>
   </div>
 </section>

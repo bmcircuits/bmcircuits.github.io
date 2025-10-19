@@ -10,23 +10,33 @@ body_class: subpage
   <p>Selected work</p>
 </header>
 
-<div class="flex flex-2">
-  <article>
-    <div class="image fit">
-      <img src="{{ '/images/rPI_KOE_LCD_Board.png' | relative_url }}" alt="Raspberry Pi LCD adaptor board" width="576" height="196">
-    </div>
+{% comment %} Build unique tag list for filters {% endcomment %}
+{% capture tags_str %}{% for p in site.projects %}{% if p.tags %}{% for t in p.tags %}{{ t }},{% endfor %}{% endif %}{% endfor %}{% endcapture %}
+{% assign tags = tags_str | split: ',' | uniq | sort %}
+
+<ul class="actions align-center" style="margin-bottom: 2rem;">
+  <li><a href="#" class="button special" data-filter="all">All</a></li>
+  {% for tag in tags %}
+    {% unless tag == '' %}
+    <li><a href="#" class="button" data-filter="{{ tag }}">{{ tag }}</a></li>
+    {% endunless %}
+  {% endfor %}
+</ul>
+
+<div class="flex flex-2" data-portfolio-grid>
+  {% assign projects = site.projects | sort: 'title' %}
+  {% for project in projects %}
+  {% assign img = project.image | default: project.gallery | first %}
+  <article data-tags="{% if project.tags %}{{ project.tags | join: ',' }}{% endif %}">
+    <a href="{{ project.url | relative_url }}" class="image fit">
+      {% if img %}
+      <img src="{{ img | relative_url }}" alt="{{ project.title }}" width="576" height="196">
+      {% endif %}
+    </a>
     <header>
-      <h3>Raspberry Pi LCD adaptor board</h3>
+      <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
     </header>
-    <p>This little rPi "hat" connects on top of any rPi model and interfaces via the DPI (Display Parallel Interface).</p>
+    {% if project.description %}<p>{{ project.description }}</p>{% endif %}
   </article>
-  <article>
-    <div class="image fit">
-      <img src="{{ '/images/BMC_banner.jpg' | relative_url }}" alt="Project 2" width="576" height="196">
-    </div>
-    <header>
-      <h3>Fusce pellentesque tempus</h3>
-    </header>
-    <p>Project description placeholder.</p>
-  </article>
+  {% endfor %}
 </div>

@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<section id="main" class="wrapper">
+  <div class="inner">
+    <header class="align-center">
+      <h2>{{ page.title }}</h2>
+      {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+    </header>
+
+    {% if page.description %}
+    <p>{{ page.description }}</p>
+    {% endif %}
+
+    {% if page.tags %}
+    <p>
+      {% for tag in page.tags %}
+        <span class="label">{{ tag }}</span>
+      {% endfor %}
+    </p>
+    {% endif %}
+
+    {% if page.gallery and page.gallery.size > 0 %}
+    <div class="portfolio-gallery">
+      {% for img in page.gallery %}
+      <a href="{{ img | relative_url }}" class="lightbox" data-lightbox="project-{{ page.slug | default: page.title | slugify }}">
+        <span class="image fit">
+          <img src="{{ img | relative_url }}" alt="{{ page.title }} image {{ forloop.index }}">
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {{ content }}
+
+    <p><a class="button" href="{{ '/portfolio/' | relative_url }}">Back to portfolio</a></p>
+  </div>
+</section>
